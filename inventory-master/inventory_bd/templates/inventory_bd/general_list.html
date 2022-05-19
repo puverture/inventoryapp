@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сводная таблица</title>
+</head>
+<body>
+     <div class="container" style="max-width: 1920px">
+    <div style="display: flex">
+        <table data-href-template="" border="1" style="border-collapse:collapse; width: 100%; margin-bottom: 50px; font-size: 30px">
+        <tr>
+          <th>id_ответственного</th>
+          <th>id_товара</th>
+        </tr>
+        {% for i in general %}
+            <tr>
+                {% for j in i %}
+                   <td> {{ j }} </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация об элементе</title>
+</head>
+<body>
+    <h2>Информация об элементе</h2>
+    <form method="post" action="/inventory/{{ profile_id }}/qrcode/">
+        {% csrf_token %}
+        {{ inventory_form.as_p }}
+        <img id="barcode" src="https://api.qrserver.com/v1/create-qr-code/?data=/inventory/{{ profile_id }}/qrcode/&amp;size=300x300" alt="" title="Object" width="300" height="300">
+    </form>
+</body>
+</html>
