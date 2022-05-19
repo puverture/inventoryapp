@@ -1,4 +1,4 @@
-# inventorization
+# inventoryapp
 Приложение для инвентаризации
 
 # Установка
