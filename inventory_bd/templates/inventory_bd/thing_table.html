@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица объектов</title>
+</head>
+<body>
+    <div class="container" style="max-width: 1920px">
+    <div style="display: flex">
+        <table data-href-template="" border="1" style="border-collapse:collapse; width: 100%; margin-bottom: 50px; font-size: 30px">
+        <tr>
+          <th>id</th>
+          <th>Наименование</th>
+          <th>Код</th>
+          <th>Инвентарный номер</th>
+          <th>Цена</th>
+          <th>Количество</th>
+          <th>Сумма</th>
+          <th>Примечание</th>
+        </tr>
+        {% for i in tables %}
+            <tr>
+                {% for j in i %}
+                   <td> {{ j }} </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+         <table data-href-template="" border="1" style="border-collapse:collapse; margin-bottom: 50px; font-size: 30px">
+            <tr>
+                <th>QR-code</th>
+            </tr>
+            {% for b in qr %}
+                <tr>
+                      {% for a in b %}
+                        <td> <a href="{% url 'qrcode' a %}" target="_blank">QR-code</a> </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <table data-href-template="" border="1" style="border-collapse:collapse; margin-bottom: 50px; font-size: 30px">
+            <tr>
+                <th>Редактировать</th>
+            </tr>
+            {% for k in my_id %}
+                <tr>
+                      {% for m in k %}
+                        <td> <a href="{% url 'edit-thing' m %}" target="_blank">Редактировать</a> </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+        <div style="display: flex">
+            <form action="{% url 'create-thing' %}" target="_blank" >
+                <button class="btn" style="margin-right: 20px; width: 120px; height: 50px; font-size: 18px; cursor: pointer">Добавить</button>
+            </form>
+            <form action="/admin/inventory_bd/thing/" target="_blank">
+                <button class="btn" style="margin-right: 20px; width: 120px; height: 50px; font-size: 18px; cursor: pointer">Удалить</button>
+             </form>
+        </div>
+    </div>
+</body>
+</html>
